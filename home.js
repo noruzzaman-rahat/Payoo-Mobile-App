@@ -1,7 +1,7 @@
 // console.log("connect home file")
 
 const validPin = 1234
-
+//add money features
 document.getElementById("add-money-btn").addEventListener("click",function(e){
     e.preventDefault()
     // console.log("add money btn clicked")
@@ -29,4 +29,37 @@ document.getElementById("add-money-btn").addEventListener("click",function(e){
     const totalNewBalance = amount+availableBalance
 
     document.getElementById("available-balance").innerText = totalNewBalance
+})
+
+//cash out feature
+
+document.getElementById("withdraw-btn").addEventListener("click", function(e){ 
+    e.preventDefault()
+    // console.log("withdraw button clicked")
+    const amount = parseInt(document.getElementById("withdraw-ammount").value)
+
+    const availableBalance = parseInt(document.getElementById("available-balance").innerText)
+
+    const totalNewBalance = availableBalance - amount
+    // console.log(totalNewBalance)
+    document.getElementById("available-balance").innerText = totalNewBalance
+})
+
+
+
+
+
+
+
+//toggling features
+document.getElementById("add-button").addEventListener("click",function(){ 
+    document.getElementById("cash-out-parent").style.display = "none"
+    document.getElementById("add-money-parent").style.display = "block"
+})
+
+
+document.getElementById("cash-out-button").addEventListener("click",function(){ 
+    document.getElementById("add-money-parent").style.display = "none"
+    document.getElementById("cash-out-parent").style.display = "block"
+    
 })
